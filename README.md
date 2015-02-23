@@ -12,3 +12,4 @@ This is an example that shows how add a iOS like A-Z Fast Scroll on the new Recy
      FastScrollRecyclerViewItemDecoration decoration = new FastScrollRecyclerViewItemDecoration(this);
         mRecyclerView.addItemDecoration(decoration);
  ```
+ - add `    <dimen name="fast_scroll_overlay_text_size">100dp</dimen>` to your /values/dimens.xml file. This is the dp size of the overlayed letter
