@@ -25,6 +25,10 @@ config :delta_nu_web, DeltaNuWeb.Endpoint,
   pubsub_server: DeltaNu.PubSub,
   live_view: [signing_salt: "Y8XB95uN"]
 
+config :delta_nu_web, :pow,
+  user: DeltaNu.Users.User,
+  repo: DeltaNu.Repo
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

@@ -50,5 +50,6 @@ defmodule DeltaNuWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug Pow.Plug.Session, otp_app: :delta_nu_web
   plug DeltaNuWeb.Router
 end
