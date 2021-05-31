@@ -15,6 +15,7 @@ defmodule DeltaNu.Repo.Migrations.CreateUsers do
       add :state_province, :string
       add :country, :string, default: "USA"
       add :profile_pic, :string
+      add :role, :string, default: "user"
       
       timestamps()
     end

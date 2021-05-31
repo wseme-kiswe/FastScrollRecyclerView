@@ -1,6 +1,8 @@
 defmodule DeltaNuWeb.Router do
   use DeltaNuWeb, :router
   use Pow.Phoenix.Router
+  use Pow.Extension.Phoenix.Router,
+    extensions: [PowResetPassword, PowPersistentSession]
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,15 +16,38 @@ defmodule DeltaNuWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", DeltaNuWeb do
-    pipe_through :browser
-    get "/", PageController, :index
+  pipeline :admin do
+    plug DeltaNuWeb.EnsureRolePlug, :admin
+  end
+
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
   end
 
   scope "/" do
     pipe_through :browser
 
     pow_routes()
+    pow_extension_routes()
+  end
+
+  #Signed in auth required routes
+  scope "/", DeltaNuWeb do
+    pipe_through [:browser, :protected]
+  end
+
+
+  scope "/admin", MyAppWeb do
+    pipe_through [:browser, :admin]
+
+    # ...
+  end
+
+  # Public auth required routes
+  scope "/", DeltaNuWeb do
+    pipe_through :browser
+    get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.

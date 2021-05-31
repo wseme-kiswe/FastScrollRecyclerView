@@ -27,12 +27,16 @@ config :delta_nu_web, DeltaNuWeb.Endpoint,
 
 config :delta_nu_web, :pow,
   user: DeltaNu.Users.User,
-  repo: DeltaNu.Repo
+  repo: DeltaNu.Repo,
+  web_module: DeltaNuWeb,
+  mailer_backend: DeltaNuWeb.Pow.Mailer
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
+  metadata: [:request_id],
+  extensions: [PowResetPassword, PowPersistentSession],
+  controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason

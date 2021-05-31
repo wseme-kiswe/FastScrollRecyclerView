@@ -14,7 +14,7 @@ defmodule DeltaNu.Schemas.User do
       field :state_province, :string
       field :country, :string, default: "USA"
       field :profile_pic, :string
-      field :role, :string
+      field :role, :string, default: "user"
 
       timestamps()
   end
