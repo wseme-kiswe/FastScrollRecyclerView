@@ -1,0 +1,48 @@
+<h1>Show Event</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @event.title %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @event.description %>
+  </li>
+
+  <li>
+    <strong>Start time:</strong>
+    <%= @event.start_time %>
+  </li>
+
+  <li>
+    <strong>End time:</strong>
+    <%= @event.end_time %>
+  </li>
+
+  <li>
+    <strong>Picture:</strong>
+    <%= @event.picture %>
+  </li>
+
+  <li>
+    <strong>Place:</strong>
+    <%= @event.place %>
+  </li>
+
+  <li>
+    <strong>Amount registered users:</strong>
+    <%= @event.amount_registered_users %>
+  </li>
+
+  <li>
+    <strong>Max registered users:</strong>
+    <%= @event.max_registered_users %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.event_path(@conn, :edit, @event) %></span>
+<span><%= link "Back", to: Routes.event_path(@conn, :index) %></span>
