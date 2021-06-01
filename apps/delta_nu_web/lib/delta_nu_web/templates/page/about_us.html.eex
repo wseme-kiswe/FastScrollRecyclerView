@@ -1,0 +1,21 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Delta Nu" %></h1>
+  <p>The purpose of Delta Nu is to embody the eight ideals of the sisterhood: work, fun, love, friendship, planning, building, and sharing.</p>
+</section>
+
+<section class="row">
+  <article class="column">
+    <h2>Flower</h2>
+    <ul>
+      <li>
+        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
+      </li>
+      <li>
+        <a href="https://github.com/phoenixframework/phoenix">Source</a>
+      </li>
+      <li>
+        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
+      </li>
+    </ul>
+  </article>
+</section>

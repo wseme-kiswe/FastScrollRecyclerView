@@ -24,13 +24,15 @@
             <% end %>
           </ul>
           <ul>
+
+              <li><%= link "About Us", to: "/about_us" %></li>
             <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
               <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
             <% end %>
           </ul>
         </nav>
-        <a href="https://deltanu50th.org/" >
+        <a href="/" >
           <img  width="150" src="<%= Routes.static_path(@conn, "/images/50th_birthday_logo.JPG") %>" alt="Phoenix Framework Logo"/>
         </a>
       </section>

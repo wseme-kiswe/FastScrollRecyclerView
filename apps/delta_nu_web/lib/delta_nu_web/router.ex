@@ -49,6 +49,7 @@ defmodule DeltaNuWeb.Router do
   scope "/", DeltaNuWeb do
     pipe_through :browser
     get "/", PageController, :index
+    get "/about_us", PageController, :about_us
   end
 
   # Other scopes may use custom stacks.
