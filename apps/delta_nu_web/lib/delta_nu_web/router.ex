@@ -39,7 +39,7 @@ defmodule DeltaNuWeb.Router do
   end
 
 
-  scope "/admin", MyAppWeb do
+  scope "/admin", DeltaNuWeb do
     pipe_through [:browser, :admin]
 
     resources "/events", EventController
