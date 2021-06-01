@@ -5,17 +5,8 @@
 
 <section class="row">
   <article class="column">
-    <h2>Flower</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
-      </li>
-    </ul>
+    <h2>Sorority Flower - Yellow Rose</h2>
+    <img  width="150" src="<%= Routes.static_path(@conn, "/images/Rose_Yellow_2.png") %>" alt="Yellow Rose"/>
+    
   </article>
 </section>

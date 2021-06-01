@@ -8,36 +8,45 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
-  <body>
-    <header>
+  <body class="bg-yellow-200">
+    <header class="bg-yellow-200" >
       <section class="container">
-        <nav role="navigation">
+        <nav role="navigation ">
           <ul>
             <%= if @current_user do %>
               <li>Signed in as: <%= @current_user.email %></li>
               <li><%= link "Sign out", to: Routes.pow_session_path(@conn, :delete), method: :delete %></li>
               <li><%= link "Edit account", to: Routes.pow_registration_path(@conn, :edit) %></li>
-              <li><%= link "Events", to: Routes.event_path(@conn, :index) %></li>
             <% else %>
               <li><%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %></li>
               <li><%= link "Sign up", to: Routes.pow_registration_path(@conn, :new) %></li>
             <% end %>
           </ul>
           <ul>
-
-              <li><%= link "About Us", to: "/about_us" %></li>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
+              <!-- 
+            <%# <%= if function_exported?(Routes, :live_dashboard_path, 2) do %> %>
+              <%# <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li> %>
+            <%# <% end %> -->
           </ul>
         </nav>
         <a href="/" >
-          <img  width="150" src="<%= Routes.static_path(@conn, "/images/50th_birthday_logo.JPG") %>" alt="Phoenix Framework Logo"/>
+          <img  width="150" src="<%= Routes.static_path(@conn, "/images/50th_birthday_logo.JPG") %>" alt="Delta Nu Logo"/>
         </a>
       </section>
+      <section  class="container">
+
+        <nav role="navigation">
+        <ul class="flex">
+              <li class="mr-6 text-blue-500 hover:text-blue-800"><%= link "About Us", to: "/about_us" %></li>
+            <%= if @current_user do %>
+              <li class="mr-6 text-blue-500 hover:text-blue-800"><%= link "Events", to: Routes.event_path(@conn, :index) %></li>
+        <% end %>
+        </ul>
+        </nav>
+      </section>
     </header>
-    <main role="main" class="container">
+    
+    <main role="main" class="container bg-white">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= @inner_content %>

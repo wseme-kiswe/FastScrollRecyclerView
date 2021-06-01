@@ -4,7 +4,7 @@ defmodule DeltaNu.Users.User do
   use Pow.Ecto.Schema
   use Pow.Extension.Ecto.Schema,
     extensions: [PowResetPassword, PowPersistentSession]
-  require IEx
+  # require IEx
 
   schema "users" do
     
@@ -27,14 +27,15 @@ defmodule DeltaNu.Users.User do
   def changeset(user_or_changeset, attrs) do
     changeset=user_or_changeset
     |> cast(attrs, [:first_name, :last_name, :maiden_name, :graduation_class_year, :phone_number, :address, :city_town, :state_province, :country, :profile_pic, :role])
+    # |> validate_length(:graduation_class_year, min: 4)
     |> pow_changeset(attrs)
     |> pow_extension_changeset(attrs)
     # |> validate_length(:graduation_class_year, min: 4)
     # |> validate_required([:first_name, :last_name, :graduation_class_year, :phone_number, :address, :city_town, :state_province, :country])
 
-    IO.puts("***********")
-    IO.inspect(changeset)
-    IO.puts("***********")
+    # IO.puts("***********")
+    # IO.inspect(changeset)
+    # IO.puts("***********")
     changeset
   end
 
