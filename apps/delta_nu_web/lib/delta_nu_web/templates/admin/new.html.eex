@@ -1,0 +1,56 @@
+<h1>Register</h1>
+<%= form_for @changeset, Routes.signup_path(@conn, :create), fn f -> %>
+
+  <%= label f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+  <%= text_input f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+  <%= error_tag f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+
+
+  <%= label f, :first_name %>
+  <%= text_input f, :first_name %>
+  <%= error_tag f, :first_name %>
+
+  <%= label f, :last_name %>
+  <%= text_input f, :last_name %>
+  <%= error_tag f, :last_name %>
+
+  <%= label f, :maiden_name %>
+  <%= text_input f, :maiden_name %>
+  <%= error_tag f, :maiden_name %>
+
+  <%= label f, :graduation_class_year %>
+  <%= text_input f, :graduation_class_year %>
+  <%= error_tag f, :graduation_class_year %>
+
+  <%= label f, :phone_number %>
+  <%= text_input f, :phone_number %>
+  <%= error_tag f, :phone_number %>
+
+  <%= label f, :address %>
+  <%= text_input f, :address %>
+  <%= error_tag f, :address %>
+
+  <%= label f, :city_town %>
+  <%= text_input f, :city_town %>
+  <%= error_tag f, :city_town %>
+
+  <%= label f, :country %>
+  <%= text_input f, :country %>
+  <%= error_tag f, :country %>
+
+
+  <%= label f, :password %>
+  <%= password_input f, :password %>
+  <%= error_tag f, :password %>
+
+  <%= label f, :password_confirmation %>
+  <%= password_input f, :password_confirmation %>
+  <%= error_tag f, :password_confirmation %>
+
+  <div>
+    <%= submit "Register" %>
+  </div>
+<% end %>
+
+
+<span><%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %></span>

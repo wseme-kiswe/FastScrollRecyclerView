@@ -36,6 +36,7 @@ defmodule DeltaNuWeb.Router do
   scope "/", DeltaNuWeb do
     pipe_through [:browser, :protected]
     resources "/events", EventController
+
   end
 
 
@@ -43,6 +44,7 @@ defmodule DeltaNuWeb.Router do
     pipe_through [:browser, :admin]
 
     resources "/events", EventController
+
   end
 
   # Public auth required routes
@@ -50,6 +52,9 @@ defmodule DeltaNuWeb.Router do
     pipe_through :browser
     get "/", PageController, :index
     get "/about_us", PageController, :about_us
+
+    get "/admin/signup", AdminController, :new, as: :signup
+    post "/admin/signup", AdminController, :create, as: :signup
   end
 
   # Other scopes may use custom stacks.
