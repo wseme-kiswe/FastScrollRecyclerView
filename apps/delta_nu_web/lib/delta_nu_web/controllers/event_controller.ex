@@ -9,6 +9,20 @@ defmodule DeltaNuWeb.EventController do
     render(conn, "index.html", events: events)
   end
 
+
+  def events_listing(conn, _params) do
+    events = Events.list_events() # need call to get in order of date
+    render(conn, "events_listing.html", events: events)
+  end
+
+
+  def events_listing_show(conn, %{"id" => id}) do
+    event = Events.get_event!(id)
+    render(conn, "events_listing_show.html", event: event)
+  end
+
+
+
   def new(conn, _params) do
     changeset = Events.change_event(%Event{})
     render(conn, "new.html", changeset: changeset)

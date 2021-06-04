@@ -35,8 +35,9 @@ defmodule DeltaNuWeb.Router do
   #Signed in auth required routes
   scope "/", DeltaNuWeb do
     pipe_through [:browser, :protected]
-    resources "/events", EventController
 
+    get "/events_listing", EventController, :events_listing
+    get "/events/:id", EventController, :events_listing_show
   end
 
 
@@ -44,7 +45,6 @@ defmodule DeltaNuWeb.Router do
     pipe_through [:browser, :admin]
 
     resources "/events", EventController
-
   end
 
   # Public auth required routes
